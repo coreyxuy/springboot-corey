@@ -8,7 +8,9 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -17,8 +19,7 @@ import java.io.File;
 /**
  * @author corey
  * @date 2018/10/13 23:05
- */
-@Service
+ */@Service
 public class MailService {
 
     //声明一个全局的异常变量
