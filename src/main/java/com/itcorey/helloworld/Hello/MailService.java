@@ -34,7 +34,7 @@ public class MailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public void sayHello() {
+    public void sayHello()  {
         System.out.println("===========>HelloWorld!");
     }
 
