@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/tb?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/tb?useUnicode=true&characterEncoding=utf8&usessl=true
     username: root
     password: 123456
   #\u90AE\u7BB1\u914D\u7F6E

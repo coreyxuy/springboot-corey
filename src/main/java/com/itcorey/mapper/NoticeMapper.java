@@ -1,8 +1,10 @@
 package com.itcorey.mapper;
 
 import com.itcorey.pojo.Notice;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+@Mapper
 public interface NoticeMapper {
     int deleteByPrimaryKey(Integer id);
 

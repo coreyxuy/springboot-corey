@@ -36,9 +36,9 @@ public class NoticeController {
     @RequestMapping("/notice")
     @ResponseBody
     public Notice queryNote() {
-        Integer id = 1;
+        Integer id = 6;
         Notice notice = noticeService.queryUser(id);
-        System.out.println("==="+notice);
+        System.out.println("==="+notice.toString());
         return notice;
     }
 }
