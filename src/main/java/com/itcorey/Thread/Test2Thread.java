@@ -1,4 +1,4 @@
-package com.itcorey.helloworld.Thread;
+package com.itcorey.Thread;
 
 public class Test2Thread {
 

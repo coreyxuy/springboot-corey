@@ -1,4 +1,4 @@
-package com.itcorey.helloworld.passw;
+package com.itcorey.passw;
 
 /**
  * Created by ：Corey

@@ -1,0 +1,19 @@
+#\u914D\u7F6E\u6570\u636E\u6E90
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tb?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 123456
+  #\u90AE\u7BB1\u914D\u7F6E
+  mail:
+    host: smtp.163.com
+    username: coreyxuyong@163.com
+    password: yourPassword163
+    default-encoding: utf-8
+
+
+
+
+
+

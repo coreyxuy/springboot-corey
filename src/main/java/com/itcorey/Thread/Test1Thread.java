@@ -1,7 +1,7 @@
-package com.itcorey.helloworld.Thread;
+package com.itcorey.Thread;
 
 
-import com.itcorey.helloworld.vo.Hero;
+import com.itcorey.vo.Hero;
 
 /**
  * 线程join

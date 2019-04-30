@@ -1,4 +1,4 @@
-package com.itcorey.helloworld.vo;
+package com.itcorey.vo;
 
 /**
  * Created by ：Corey

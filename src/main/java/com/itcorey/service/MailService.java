@@ -1,4 +1,4 @@
-package com.itcorey.helloworld.Hello;
+package com.itcorey.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,8 @@ import java.io.File;
 /**
  * @author corey
  * @date 2018/10/13 23:05
- */@Service
+ */
+@Service
 public class MailService {
 
     //声明一个全局的异常变量

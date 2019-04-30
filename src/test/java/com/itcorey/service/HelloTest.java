@@ -1,6 +1,5 @@
-package com.itcorey.helloworld.service;
+package com.itcorey.service;
 
-import com.itcorey.helloworld.Hello.MailService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ public class HelloTest {
 
 
     @Test
-    public void test(){
+    public void test() {
         mailService.sayHello();
     }
 
@@ -35,14 +34,14 @@ public class HelloTest {
      * 邮件测试代码
      */
     @Test
-    public  void  senSimpleMailTest(){
+    public void senSimpleMailTest() {
         //收件者
         String cover = "coreyxuyong@163.com";
         //主题
         String theme = "邮件测试";
         //内容
         String content = "springboot邮件发送..";
-        mailService.sendSimplMail(cover,theme,content);
+        mailService.sendSimplMail(cover, theme, content);
     }
 
     /**
@@ -50,12 +49,12 @@ public class HelloTest {
      */
     @Test
     public void sendHtmlEmail() throws MessagingException {
-        String conten = "<html>\n"+
-                    "<body>\n"+
-                            "<h4> 这是一封html邮件!</h4>\n"+
-                    "</body>\n"+
+        String conten = "<html>\n" +
+                "<body>\n" +
+                "<h4> 这是一封html邮件!</h4>\n" +
+                "</body>\n" +
                 "</html>";
-        for (int i = 0;i<2 ;i++) {
+        for (int i = 0; i < 2; i++) {
             mailService.sendHtmlEmail("coreyxuyong@163.com", "这是一封html邮件", conten);
         }
     }
@@ -64,22 +63,23 @@ public class HelloTest {
      * 邮件添加附件
      */
     @Test
-    public void  sendAttachmentsMail() throws MessagingException {
+    public void sendAttachmentsMail() throws MessagingException {
         String file = "D:\\Spring Boot基.rar";
-         mailService.sendAttachmentsMail("coreyxuyong@163.com", "这是一封带附件的邮件","这是一封带附件的邮件的电子邮件",file);
+        mailService.sendAttachmentsMail("coreyxuyong@163.com", "这是一封带附件的邮件", "这是一封带附件的邮件的电子邮件", file);
     }
 
     /**
      * 发送图片邮件
+     *
      * @throws MessagingException
      */
     @Test
-    public void  sendInLinResource() throws MessagingException {
+    public void sendInLinResource() throws MessagingException {
         String inmPath = "D:\\1.png";
         String rscId = "corey001";
-        String content = "<html><body>这是一份带有图片的电子邮件:<img src=\'cid:"+rscId +" \'></img></body></html>";
-        mailService.sendInLinResource("coreyxuyong@163.com","这是一封带图片的邮件",
-                content, inmPath,rscId );
+        String content = "<html><body>这是一份带有图片的电子邮件:<img src=\'cid:" + rscId + " \'></img></body></html>";
+        mailService.sendInLinResource("coreyxuyong@163.com", "这是一封带图片的邮件",
+                content, inmPath, rscId);
     }
 
     /**
@@ -88,9 +88,9 @@ public class HelloTest {
     @Test
     public void setTemplateEngine() throws MessagingException {
         Context context = new Context();
-        context.setVariable("id",007);
+        context.setVariable("id", 007);
         String emailTemplate = templateEngine.process("emailTemplate", context);
-        mailService.sendHtmlEmail("coreyxuyong@163.com","这是一封模板邮件",emailTemplate);
+        mailService.sendHtmlEmail("coreyxuyong@163.com", "这是一封模板邮件", emailTemplate);
     }
 
 }

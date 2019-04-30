@@ -1,4 +1,4 @@
-package com.itcorey.helloworld;
+package com.itcorey;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
