@@ -12,6 +12,10 @@ spring:
     password: yourPassword163
     default-encoding: utf-8
 
+#\u516C\u5171\u914D\u7F6E\u4E0Eprofiles\u9009\u62E9\u65E0\u5173 mapperLocations\u6307\u7684\u8DEF\u5F84\u662Fsrc/main/resources
+mybatis:
+  typeAliasesPackage: com.itcorey.pojo
+  mapperLocations: classpath:mappers/*.xml
 
 
 

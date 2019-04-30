@@ -1,6 +1,7 @@
 package com.itcorey.mapper;
 
 import com.itcorey.pojo.Notice;
+import org.apache.ibatis.annotations.Select;
 
 public interface NoticeMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +17,7 @@ public interface NoticeMapper {
     int updateByPrimaryKeyWithBLOBs(Notice record);
 
     int updateByPrimaryKey(Notice record);
+
+    @Select("select * from notice where id = #{id}")
+    Notice selectNotice(Integer id);
 }

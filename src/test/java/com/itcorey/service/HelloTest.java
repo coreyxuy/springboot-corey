@@ -1,5 +1,7 @@
 package com.itcorey.service;
 
+import com.itcorey.mapper.NoticeMapper;
+import com.itcorey.pojo.Notice;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
+import java.util.Date;
 
 /**
  * @author corey
@@ -23,6 +26,8 @@ public class HelloTest {
 
     @Autowired
     private TemplateEngine templateEngine;
+
+
 
 
     @Test
@@ -92,5 +97,6 @@ public class HelloTest {
         String emailTemplate = templateEngine.process("emailTemplate", context);
         mailService.sendHtmlEmail("coreyxuyong@163.com", "这是一封模板邮件", emailTemplate);
     }
+
 
 }

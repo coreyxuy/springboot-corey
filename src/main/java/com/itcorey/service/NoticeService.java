@@ -1,6 +1,6 @@
 package com.itcorey.service;
 
-import org.springframework.stereotype.Service;
+import com.itcorey.pojo.Notice;
 
 /**
  * @Description:
@@ -8,9 +8,8 @@ import org.springframework.stereotype.Service;
  * @Date: 2019/4/30 11:52
  * @Modified By:
  */
-@Service
 public interface NoticeService {
 
 
-
+    Notice queryUser(Integer id);
 }
