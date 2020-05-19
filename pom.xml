@@ -83,6 +83,16 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.29</version>
         </dependency>
+        <!-- 整合消息队列ActiveMQ -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+        <!-- 配置线程池 -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-pool</artifactId>
+        </dependency>
 
     </dependencies>
 

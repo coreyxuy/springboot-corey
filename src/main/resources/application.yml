@@ -1,23 +1,33 @@
-#\u914D\u7F6E\u6570\u636E\u6E90
+#配置数据源
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/tb?useUnicode=true&characterEncoding=utf8&usessl=true
     username: root
     password: 123456
-  #\u90AE\u7BB1\u914D\u7F6E
+  #邮箱配置
   mail:
     host: smtp.163.com
     username: coreyxuyong@163.com
     password: yourPassword163
     default-encoding: utf-8
+  activemq:
+    broker-url: tcp://127.0.0.1:61616  #地址
+    user: admin
+    password: admin
+    pool:
+      enabled: true
+      max-connections: 100  #线程池
+  #default point to point
+  jms:
+    pub-sub-domain: true
 
-#\u516C\u5171\u914D\u7F6E\u4E0Eprofiles\u9009\u62E9\u65E0\u5173 mapperLocations\u6307\u7684\u8DEF\u5F84\u662Fsrc/main/resources
+#公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
 mybatis:
   typeAliasesPackage: com.itcorey.pojo
   mapperLocations: classpath:mappers/*.xml
 
 
-
-
-
+#端口
+server:
+  port: 8081
