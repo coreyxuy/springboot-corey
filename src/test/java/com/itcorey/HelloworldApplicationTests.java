@@ -17,24 +17,17 @@ public class HelloworldApplicationTests {
 
     @Resource
     private RedisTemplate<String,User> redisTemplate;
-    private User user;
 
-
-    @Before
-    public void before(){
-      user=new User();
+    @Test
+    public void testUser(){
+        User user = new User();
         user.setDate("123");
         user.setDaysId("456");
         user.setItemNumber(123);
         user.setOpenId("dawda");
         user.setTitle("title");
-
-    }
-
-    @Test
-    public void testUser(){
-        this.redisTemplate.opsForValue().set("days",user);
-        System.out.println((redisTemplate.opsForValue().get("days")));
+        this.redisTemplate.opsForValue().set("corey",user);
+        System.out.println((redisTemplate.opsForValue().get("corey")));
     }
 
 

@@ -2,7 +2,7 @@ package com.itcorey.pojo;
 
 import lombok.Data;
 
-import javax.annotation.sql.DataSourceDefinition;
+import java.io.Serializable;
 
 /**
  * @Classname user
@@ -11,7 +11,7 @@ import javax.annotation.sql.DataSourceDefinition;
  * @Created by corey
  */
 @Data
-public class User {
+public class User implements Serializable {
 
     private String openId;
 
