@@ -1,6 +1,8 @@
 package com.itcorey.controller;
 
 import com.itcorey.service.ProducerService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import javax.annotation.Resource;
  * @Created by corey
  */
 @RestController
+@Api(tags = "点对点模式消息")
 @RequestMapping("/api/message")
 public class MessageController {
 
@@ -22,6 +25,7 @@ public class MessageController {
     private ProducerService producerService;
 
     @GetMapping("/send")
+    @ApiOperation("点对点发送消息")
     public String sendMsg(String message) {
         new Thread(new Runnable() {
             @Override
