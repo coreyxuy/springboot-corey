@@ -1,21 +1,33 @@
 package com.itcorey.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Notice {
+@ApiModel(description = "通知返回信息")
+public class Notice implements Serializable {
+
+
+    @ApiModelProperty(value = "id")
     private Integer id;
 
+    @ApiModelProperty(value = "标题")
     private String title;
 
+    @ApiModelProperty(value = "类型")
     private Integer type;
 
+    @ApiModelProperty(value = "时间")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createtime;
 
+    @ApiModelProperty(value = "创建人")
     private Integer creater;
 
+    @ApiModelProperty(value = "类容")
     private String content;
 
     public Integer getId() {
