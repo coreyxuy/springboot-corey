@@ -1,7 +1,5 @@
 package com.itcorey.Thread;
 
-import java.io.Serializable;
-
 /**
  * @Classname concurrentTest
  * @Description 多线程一定快吗?
