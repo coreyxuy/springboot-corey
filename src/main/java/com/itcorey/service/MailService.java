@@ -8,9 +8,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -23,7 +21,6 @@ import java.io.File;
 @Service
 public class MailService {
 
-    //声明一个全局的异常变量
     private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
 
 
@@ -35,7 +32,7 @@ public class MailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public void sayHello()  {
+    public void sayHello() {
         System.out.println("===========>HelloWorld!");
     }
 
@@ -65,7 +62,7 @@ public class MailService {
         helper.setFrom(from);
         helper.setTo(to);
         helper.setSubject(subject);
-        helper.setText(content,true);
+        helper.setText(content, true);
 
         javaMailSender.send(message);
 
@@ -74,22 +71,23 @@ public class MailService {
     /**
      * 发送附件邮件
      */
-    public void sendAttachmentsMail(String to,String subject,String content, String filepath) throws MessagingException {
+    public void sendAttachmentsMail(String to, String subject, String content, String filepath) throws MessagingException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
         helper.setFrom(from);
         helper.setTo(to);
         helper.setSubject(subject);
-        helper.setText(content,true);
+        helper.setText(content, true);
         //读取附件路径
         FileSystemResource file = new FileSystemResource(new File(filepath));
         String fileName = file.getFilename();
-        helper.addAttachment(fileName,file);
+        helper.addAttachment(fileName, file);
     }
 
 
     /**
      * 发送图片邮件
+     *
      * @param to
      * @param subject
      * @param content
@@ -97,21 +95,21 @@ public class MailService {
      * @param rscId
      * @throws MessagingException
      */
-    public  void  sendInLinResource(String to,String subject,String content,String rscPath,String rscId)  {
+    public void sendInLinResource(String to, String subject, String content, String rscPath, String rscId) {
         MimeMessage message = javaMailSender.createMimeMessage();
-        logger.info("======>"+"静态邮箱地址开始发送!",to,subject,content,rscPath,rscId);
+        logger.info("======>" + "静态邮箱地址开始发送!", to, subject, content, rscPath, rscId);
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(from);
             helper.setTo(to);
             helper.setSubject(subject);
-            helper.setText(content,true);
+            helper.setText(content, true);
             FileSystemResource res = new FileSystemResource(new File(rscPath));
-            helper.addInline(rscId,res);
+            helper.addInline(rscId, res);
             logger.info("发送静态邮件成功");
         } catch (MessagingException e) {
             e.printStackTrace();
-            logger.error("发送静态邮件失败",e);
+            logger.error("发送静态邮件失败", e);
         }
 
         javaMailSender.send(message);

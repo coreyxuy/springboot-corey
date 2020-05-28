@@ -5,6 +5,7 @@ import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsMessagingTemplate;
@@ -17,6 +18,10 @@ import javax.jms.Topic;
 @SpringBootApplication
 @EnableJms //支持jms
 public class MailApplication {
+
+
+	private static ApplicationContext applicationContext;
+
 
 	@Bean
 	public Topic topic() {

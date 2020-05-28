@@ -2,6 +2,7 @@ package com.itcorey.mapper;
 
 import com.itcorey.pojo.Notice;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
@@ -21,5 +22,5 @@ public interface NoticeMapper {
     int updateByPrimaryKey(Notice record);
 
     @Select("select * from notice where id = #{id}")
-    Notice selectNotice(Integer id);
+    Notice selectNotice(@Param("id") Integer id);
 }
