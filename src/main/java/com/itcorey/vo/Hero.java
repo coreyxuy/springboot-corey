@@ -3,7 +3,7 @@ package com.itcorey.vo;
 /**
  * Created by ：Corey
  * 10:31 2018/12/17
- * 英雄类
+ * 常用英雄实体类
  */
 public class Hero {
 
