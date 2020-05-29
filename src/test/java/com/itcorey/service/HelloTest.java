@@ -1,7 +1,6 @@
 package com.itcorey.service;
 
-import com.itcorey.mapper.NoticeMapper;
-import com.itcorey.pojo.Notice;
+import com.itcorey.service.impl.MailService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import javax.mail.MessagingException;
-import java.util.Date;
 
 /**
  * @author corey
