@@ -1,4 +1,4 @@
-package com.itcorey.service;
+package com.itcorey.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -11,7 +11,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * @Classname SwaggerConfig
- * @Description swagger
+ * @Description swagger2 配置
  * @Date 2020/5/22 8:47
  * @Created by corey
  */
@@ -20,7 +20,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     public Docket createRestApi() {
-
         return new Docket(DocumentationType.SWAGGER_2)
                 .pathMapping("/")
                 .select()
