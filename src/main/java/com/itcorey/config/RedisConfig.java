@@ -1,5 +1,8 @@
 package com.itcorey.config;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itcorey.pojo.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,21 +14,36 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * @Classname RedisConfig
  * @Description Rredis 配置类
- * @Date 2020/5/21 11:38
+ * @Date 2020/6/1 10:47
  * @Created by corey
  */
 @Configuration
 public class RedisConfig {
 
     @Bean
-    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory factory){
-        RedisTemplate<String ,Object> template = new RedisTemplate<>();
-        //关联
-        template.setConnectionFactory(factory);
-        //设置key的序列化
-        template.setKeySerializer(new StringRedisSerializer());
-        //设置key的序列化
-        template.setValueSerializer(new Jackson2JsonRedisSerializer<>(User.class));
-        return template;
+    public RedisTemplate<Object, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+
+        // 使用Jackson2JsonRedisSerialize 替换默认序列化
+        Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+
+        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+
+        // 设置value的序列化规则和 key的序列化规则
+        redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+
+        redisTemplate.setHashKeySerializer(jackson2JsonRedisSerializer);
+        redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
+
+        redisTemplate.setDefaultSerializer(jackson2JsonRedisSerializer);
+        redisTemplate.setEnableDefaultSerializer(true);
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
     }
 }

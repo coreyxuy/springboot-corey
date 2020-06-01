@@ -3,6 +3,8 @@ package com.itcorey.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.itcorey.mapper.sysConfigMapper;
+import com.itcorey.pojo.sysConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.data.redis.support.atomic.RedisAtomicLong;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.thymeleaf.util.StringUtils;
+import tool.util.StringUtil;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -27,16 +31,6 @@ public class RedisUtils {
     private final static Logger log = LoggerFactory.getLogger(RedisUtils.class);
 
     private static RedisTemplate<String, Object> redisTemplate;
-
-    @Autowired
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        if (null == redisTemplate) {
-            log.info("Redis初始化配置失败，请检查配置项");
-        } else {
-            log.info("Redis初始化配置注入成功！");
-        }
-        RedisUtils.redisTemplate = redisTemplate;
-    }
 
     /**
      * 指定缓存失效时间

@@ -128,6 +128,6 @@
 
     <select id="findAll" resultType="com.itcorey.pojo.sysConfig" resultMap="BaseResultMap">
         select <include refid="Base_Column_List"/>
-        from arc_sys_config where status = 1
+        from sys_config where status = 1
   </select>
 </mapper>

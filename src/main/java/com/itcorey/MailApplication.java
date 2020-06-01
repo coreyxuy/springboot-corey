@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
@@ -17,6 +18,7 @@ import javax.jms.Topic;
 
 @SpringBootApplication
 @EnableJms //支持jms
+@ComponentScan(basePackages = "com.itcorey.*")
 public class MailApplication {
 
 
