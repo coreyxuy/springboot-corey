@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itcorey.mapper.UplocalFileMapper" >
+  <resultMap id="BaseResultMap" type="com.itcorey.pojo.UplocalFile" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="enabled" property="enabled" jdbcType="VARCHAR" />
+    <result column="profile_photo" property="profilePhoto" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, create_time, update_time, enabled, profile_photo
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_uplocal_file
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_uplocal_file
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.itcorey.pojo.UplocalFile" >
+    insert into t_uplocal_file (id, create_time, update_time, 
+      enabled, profile_photo)
+    values (#{id,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{enabled,jdbcType=VARCHAR}, #{profilePhoto,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.itcorey.pojo.UplocalFile" >
+    insert into t_uplocal_file
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="enabled != null" >
+        enabled,
+      </if>
+      <if test="profilePhoto != null" >
+        profile_photo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null" >
+        #{enabled,jdbcType=VARCHAR},
+      </if>
+      <if test="profilePhoto != null" >
+        #{profilePhoto,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.itcorey.pojo.UplocalFile" >
+    update t_uplocal_file
+    <set >
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null" >
+        enabled = #{enabled,jdbcType=VARCHAR},
+      </if>
+      <if test="profilePhoto != null" >
+        profile_photo = #{profilePhoto,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.itcorey.pojo.UplocalFile" >
+    update t_uplocal_file
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      enabled = #{enabled,jdbcType=VARCHAR},
+      profile_photo = #{profilePhoto,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
