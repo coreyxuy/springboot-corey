@@ -9,6 +9,7 @@ springboot 2.0.5
     
 #### 3.项目常用地址
 1.swagger地址: http://localhost:8081/swagger-ui.html#/
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200602194521698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_1,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NvcmV5WHV1,size_5,color_FFFFFF,t_10)
         
 2.mq客户端:    http://127.0.0.1:8161/admin/
 默认admin/admin   
