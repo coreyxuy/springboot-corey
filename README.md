@@ -22,6 +22,8 @@ springboot 2.0.5
 3. 整合mybatis的逆向工程
 4. 整合springboot上传图片
 5. 整合logback框架日志系统
+6. 整合分页插件 pagehelper
+7. 整合定时任务框架Quartz
    
      
 
