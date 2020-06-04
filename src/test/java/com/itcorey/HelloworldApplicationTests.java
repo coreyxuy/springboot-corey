@@ -1,6 +1,5 @@
 package com.itcorey;
 
-import com.itcorey.mapper.sysConfigMapper;
 import com.itcorey.pojo.Notice;
 import com.itcorey.pojo.User;
 import com.itcorey.service.NoticeService;
@@ -13,14 +12,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class HelloworldApplicationTests {
-
-    //@Autowired
-    //private sysConfigMapper sysConfigMapper;
 
     @Autowired
     private NoticeService noticeService;
@@ -29,11 +24,6 @@ public class HelloworldApplicationTests {
     @Resource
     private RedisTemplate<String,User> redisTemplate;
 
-//    @Test
-//    public void testList(){
-//        List list = sysConfigMapper.selectByPrimaryKey();
-//        System.out.println(list);
-//    }
 
     @Test
     public void  noticeTest(){
@@ -43,25 +33,10 @@ public class HelloworldApplicationTests {
 
 
 
-    @Test
-    public void testUser(){
-        User user = new User();
-        user.setDate("123");
-        user.setDaysId("456");
-        user.setItemNumber(123);
-        user.setOpenId("dawda");
-        user.setTitle("title");
-        this.redisTemplate.opsForValue().set("corey",user);
-        System.out.println((redisTemplate.opsForValue().get("corey")));
-    }
-
-
-
 
     @Test
     public void redisTemplateTest(){
         redisTemplate.setKeySerializer(new StringRedisSerializer());
-//        redisTemplate.opsForValue().set("傻逼","看过来");
         System.out.println("corey"+redisTemplate.opsForValue().get("corey"));
     }
 

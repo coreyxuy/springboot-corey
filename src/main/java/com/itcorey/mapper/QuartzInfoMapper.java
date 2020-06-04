@@ -1,7 +1,9 @@
 package com.itcorey.mapper;
 
 import com.itcorey.pojo.QuartzInfo;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface QuartzInfoMapper {
     int deleteByPrimaryKey(Long id);
 
