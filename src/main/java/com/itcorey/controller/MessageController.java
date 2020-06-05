@@ -1,6 +1,7 @@
 package com.itcorey.controller;
 
 import com.itcorey.service.ProducerService;
+import com.itcorey.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.activemq.command.ActiveMQQueue;
@@ -26,7 +27,7 @@ public class MessageController {
 
     @GetMapping("/send")
     @ApiOperation("点对点发送消息")
-    public String sendMsg(String message) {
+    public R sendMsg(String message) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -38,6 +39,6 @@ public class MessageController {
             }
             }
         }).start();
-        return "success!!";
+        return R.ok().message("发送成功");
     }
 }

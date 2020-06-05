@@ -1,6 +1,7 @@
 package com.itcorey.controller;
 
 import com.itcorey.service.uploadService;
+import com.itcorey.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
@@ -11,9 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -22,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @Date 2020/6/2 16:31
  * @Created by corey
  */
-@Controller
+@RestController
 @Api(tags = "文件上传")
 @RequestMapping("/file")
 public class FileController {
@@ -33,12 +34,9 @@ public class FileController {
 
     @PostMapping("/image")
     @ApiOperation("上传图片")
-    public ResponseEntity<String> uploadImg(@RequestParam("file") MultipartFile file) {
+    public R uploadImg(@RequestParam("file") MultipartFile file) {
         String url = uploadService.uploadImage(file);
-        return StringUtils.isBlank(url)
-                ? ResponseEntity.badRequest().build()
-                : ResponseEntity.status(HttpStatus.CREATED).body(url);
+        return R.ok().data("url",url).message("上传图片成功!");
     }
-
 
 }

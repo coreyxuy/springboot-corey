@@ -24,6 +24,7 @@ springboot 2.0.5
 5. 整合logback框架日志系统
 6. 整合分页插件 pagehelper
 7. 整合定时任务框架Quartz
+8. 添加统一返回类R
    
      
 

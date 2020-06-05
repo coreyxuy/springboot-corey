@@ -54,11 +54,11 @@ public class uploadServiceImpl implements uploadService {
                 return "false";
             }
             //保存文件
-            file.transferTo(new File("D:\\Img\\" + originalFilename));
+            file.transferTo(new File("D:\\Img" + originalFilename));
             //写到数据库
             UplocalFile uplocal = new UplocalFile();
             uplocal.setEnabled("1");
-            uplocal.setProfilePhoto("/img/" + originalFilename);
+            uplocal.setProfilePhoto("/Img/" + originalFilename);
             int insert = uplocalFileMapper.insertSelective(uplocal);
             if (insert > 1) {
                 logger.info("文件写入成功");

@@ -1,6 +1,7 @@
 package com.itcorey.controller;
 
 import com.itcorey.service.ProducerService;
+import com.itcorey.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,9 @@ public class NewsController {
 
     @GetMapping("/publish")
     @ApiOperation("发布订阅发送消息")
-    public String publish(String news) {
+    public R publish(String news) {
         // 发布信息
         producerService.publish(news);
-        return "success!!!";
+        return R.ok().success(true);
     }
 }

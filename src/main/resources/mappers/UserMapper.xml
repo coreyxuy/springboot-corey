@@ -19,7 +19,7 @@
     <result column="version" property="version" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, avatar, account, password, salt, name, birthday, sex, email, phone, roleid, deptid, 
+    id, avatar, account, password, salt, 'name', birthday, sex, email, phone, roleid, deptid,
     status, createtime, version
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >

@@ -1,59 +1,60 @@
-package com.itcorey.pojo;
+package com.itcorey.controller.dto.req;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @Classname UserReq
+ * @Description TODO
+ * @Date 2020/6/4 19:51
+ * @Created by corey
+ */
+@ApiModel(description = "用户实体类")
+public class UserReqDto {
 
-public class User implements Serializable {
-
-    private Integer id;
-
+    @ApiModelProperty(value = "头像")
     private String avatar;
 
+    @ApiModelProperty(value = "账号")
     private String account;
 
+    @ApiModelProperty(value = "密码")
     private String password;
 
-    private String salt;
 
+    @ApiModelProperty(value = "名字")
     private String name;
 
+    @ApiModelProperty(value = "生日")
     private Date birthday;
 
+    @ApiModelProperty(value = "性别（1：男 2：女）")
     private Integer sex;
 
+    @ApiModelProperty(value = "电子邮件")
     private String email;
 
+    @ApiModelProperty(value = "电话")
     private String phone;
 
+    @ApiModelProperty(value = "角色id")
     private String roleid;
 
+    @ApiModelProperty(value = "部门id")
     private Integer deptid;
 
-    private Integer status;
 
+    @ApiModelProperty(value = "创建时间")
     private Date createtime;
-
-    private Integer version;
-
-    private static final long serialVersionUID = 1L;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getAvatar() {
         return avatar;
     }
 
     public void setAvatar(String avatar) {
-        this.avatar = avatar == null ? null : avatar.trim();
+        this.avatar = avatar;
     }
 
     public String getAccount() {
@@ -61,7 +62,7 @@ public class User implements Serializable {
     }
 
     public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
+        this.account = account;
     }
 
     public String getPassword() {
@@ -69,15 +70,7 @@ public class User implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt == null ? null : salt.trim();
+        this.password = password;
     }
 
     public String getName() {
@@ -85,7 +78,7 @@ public class User implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public Date getBirthday() {
@@ -109,7 +102,7 @@ public class User implements Serializable {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
     }
 
     public String getPhone() {
@@ -117,7 +110,7 @@ public class User implements Serializable {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public String getRoleid() {
@@ -125,7 +118,7 @@ public class User implements Serializable {
     }
 
     public void setRoleid(String roleid) {
-        this.roleid = roleid == null ? null : roleid.trim();
+        this.roleid = roleid;
     }
 
     public Integer getDeptid() {
@@ -136,27 +129,11 @@ public class User implements Serializable {
         this.deptid = deptid;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
     public Date getCreatetime() {
         return createtime;
     }
 
     public void setCreatetime(Date createtime) {
         this.createtime = createtime;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 }
