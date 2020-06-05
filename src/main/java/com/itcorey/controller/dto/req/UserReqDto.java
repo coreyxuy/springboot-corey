@@ -2,7 +2,11 @@ package com.itcorey.controller.dto.req;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import lombok.Getter;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.*;
 import java.util.Date;
 
 /**
@@ -12,128 +16,37 @@ import java.util.Date;
  * @Created by corey
  */
 @ApiModel(description = "用户实体类")
+@Getter
+@Data
 public class UserReqDto {
 
     @ApiModelProperty(value = "头像")
     private String avatar;
 
-    @ApiModelProperty(value = "账号")
-    private String account;
-
     @ApiModelProperty(value = "密码")
+    @NotEmpty(message="密码不能为空")
+    @Length(min=6,message="密码长度不能小于6位")
     private String password;
 
-
     @ApiModelProperty(value = "名字")
+    @NotNull
     private String name;
 
     @ApiModelProperty(value = "生日")
+    @NotNull
     private Date birthday;
 
     @ApiModelProperty(value = "性别（1：男 2：女）")
+    @NotNull
     private Integer sex;
 
     @ApiModelProperty(value = "电子邮件")
+    @Email(message="请输入正确的邮箱")
     private String email;
 
     @ApiModelProperty(value = "电话")
+    @Pattern(regexp = "^1(3|4|5|7|8)\\d{9}$",message = "手机号码格式错误")
+    @NotBlank(message = "手机号码不能为空")
     private String phone;
 
-    @ApiModelProperty(value = "角色id")
-    private String roleid;
-
-    @ApiModelProperty(value = "部门id")
-    private Integer deptid;
-
-
-    @ApiModelProperty(value = "创建时间")
-    private Date createtime;
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public Integer getSex() {
-        return sex;
-    }
-
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getRoleid() {
-        return roleid;
-    }
-
-    public void setRoleid(String roleid) {
-        this.roleid = roleid;
-    }
-
-    public Integer getDeptid() {
-        return deptid;
-    }
-
-    public void setDeptid(Integer deptid) {
-        this.deptid = deptid;
-    }
-
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
 }
