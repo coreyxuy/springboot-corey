@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.Getter;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.util.Date;
@@ -16,12 +17,8 @@ import java.util.Date;
  * @Created by corey
  */
 @ApiModel(description = "用户实体类")
-@Getter
 @Data
 public class UserReqDto {
-
-    @ApiModelProperty(value = "头像")
-    private String avatar;
 
     @ApiModelProperty(value = "密码")
     @NotEmpty(message="密码不能为空")
@@ -29,15 +26,15 @@ public class UserReqDto {
     private String password;
 
     @ApiModelProperty(value = "名字")
-    @NotNull
+    @NotNull(message = "姓名不能为空！")
     private String name;
 
     @ApiModelProperty(value = "生日")
-    @NotNull
+    @NotNull(message = "生日日期不能为空！")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     @ApiModelProperty(value = "性别（1：男 2：女）")
-    @NotNull
     private Integer sex;
 
     @ApiModelProperty(value = "电子邮件")
