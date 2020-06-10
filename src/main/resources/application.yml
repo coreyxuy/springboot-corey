@@ -55,5 +55,3 @@ server:
 logging:
   config: classpath:logback-spring.xml
 
-#quartz 配置类
-
