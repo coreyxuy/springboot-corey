@@ -1,6 +1,6 @@
 package com.itcorey.Thread;
 
-import com.itcorey.vo.Hero;
+import com.itcorey.pojo.Hero;
 
 /**
  * Created by ：Corey

@@ -1,4 +1,4 @@
-package com.itcorey.vo;
+package com.itcorey.pojo;
 
 /**
  * Created by ：Corey
