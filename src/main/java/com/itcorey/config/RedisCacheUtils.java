@@ -1,23 +1,19 @@
 package com.itcorey.config;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.itcorey.mapper.sysConfigMapper;
 import com.itcorey.pojo.sysConfig;
 import com.itcorey.utils.Global;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.support.atomic.RedisAtomicLong;
 import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
-import org.thymeleaf.util.StringUtils;
 import tool.util.StringUtil;
 
 import javax.annotation.Resource;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Classname RedisUtils
@@ -37,7 +33,10 @@ public class RedisCacheUtils {
     @Resource
     private sysConfigMapper sysConfigMapper;
 
-
+    /**
+     *
+     * @param redisTemplate
+     */
     @Resource
     public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
         if (null == redisTemplate) {
