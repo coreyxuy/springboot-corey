@@ -14,6 +14,9 @@ springboot 2.0.5
 2.mq客户端:    http://127.0.0.1:8161/admin/
 默认admin/admin   
 
+3.Druid德鲁伊sql监控地址;http://localhost:8007/druid/api.html
+
+
 ### 4.项目整合框架
 1. 整合activemq 的两种消息发送类型 点对点 和 发布订阅
 2. 整合redis加载启动和常用配置表信息加载到缓存和springboot容器
@@ -25,6 +28,7 @@ springboot 2.0.5
 6. 整合分页插件 pagehelper
 7. 整合定时任务框架Quartz
 8. 添加统一返回类R
+9. 添加druid连接池监控
    
      
 
