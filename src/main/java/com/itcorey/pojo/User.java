@@ -1,7 +1,5 @@
 package com.itcorey.pojo;
 
-import io.swagger.annotations.ApiModel;
-
 import java.io.Serializable;
 import java.util.Date;
 

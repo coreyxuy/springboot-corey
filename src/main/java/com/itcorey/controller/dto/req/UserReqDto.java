@@ -1,5 +1,6 @@
 package com.itcorey.controller.dto.req;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -29,10 +30,10 @@ public class UserReqDto {
     @NotNull(message = "姓名不能为空！")
     private String name;
 
-//    @ApiModelProperty(value = "生日")
-//    @NotNull(message = "生日日期不能为空！")
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
-//    private Date birthday;
+    @ApiModelProperty(value = "生日")
+    @NotNull(message = "生日日期不能为空！")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private String birthday;
 
     @ApiModelProperty(value = "性别（1：男 2：女）")
     private Integer sex;

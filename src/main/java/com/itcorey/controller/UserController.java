@@ -47,8 +47,9 @@ public class UserController {
         user.setEmail(userReqDto.getEmail());
         user.setPassword(userReqDto.getPassword());
         user.setPhone(userReqDto.getPhone());
-       // user.setBirthday(userReqDto.getBirthday());
-        user.setEmail(String.valueOf(userReqDto.getSex()));
+        user.setSex(userReqDto.getSex());
+        //user.setBirthday(userReqDto.getBirthday());
+        user.setStatus(1);
         int insert = userMapper.insert(user);
         return R.ok().data("insert",insert).message("注册成功！");
     }

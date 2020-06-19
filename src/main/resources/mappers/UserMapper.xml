@@ -44,7 +44,7 @@
       #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{birthday,jdbcType=TIMESTAMP}, #{sex,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, 
       #{phone,jdbcType=VARCHAR}, #{roleid,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER}, 
-      #{status,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{version,jdbcType=INTEGER}
+      #{status,jdbcType=INTEGER}, now(), #{version,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.itcorey.pojo.User" >

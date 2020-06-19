@@ -6,8 +6,7 @@ import tool.util.StringUtil;
 import java.util.Map;
 
 /**
- * 启动加载缓存类
- *
+ *启动加载缓存
  */
 public class Global {
 
