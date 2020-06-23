@@ -30,7 +30,7 @@ import java.util.Arrays;
 @Aspect
 @Component
 public class SysLogAspect {
-    private static final Logger logger = LoggerFactory.getLogger(SpringAop.class);
+    private static final Logger logger = LoggerFactory.getLogger(SysLogAspect.class);
 
     @Autowired
     private ClSysLogService sysLogService;
