@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Classname RedisUtils
@@ -39,7 +40,7 @@ public class RedisCacheUtils {
         } else {
             log.info("Redis初始化开始加载缓存。。。。。！");
             List<sysConfig> sysConfigs = sysConfigMapper.findAll();
-            redisTemplate.opsForValue().set("REDIS_CONFIG_TEST",sysConfigs);
+            redisTemplate.opsForValue().set("REDIS_CONFIG_TEST",sysConfigs,60*10, TimeUnit.SECONDS);
             log.info("加载缓存成功。。。。。！");
         }
     }

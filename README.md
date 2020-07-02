@@ -11,7 +11,7 @@ springboot 2.0.5
 1.swagger地址: http://localhost:8081/swagger-ui.html#/
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200602194521698.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_1,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NvcmV5WHV1,size_5,color_FFFFFF,t_10)
         
-2.mq客户端:    http://127.0.0.1:8161/admin/
+2.mq客户端:    http://127.0.0.1:8162/admin/
 默认admin/admin   
 
 3.Druid德鲁伊sql监控地址;http://localhost:8081/druid/api.html
@@ -31,6 +31,7 @@ springboot 2.0.5
 9.  添加druid连接池监控
 10. 启动加载缓存
 11. 整合redis启动加载缓存
+12. 整合redission
 
    
      

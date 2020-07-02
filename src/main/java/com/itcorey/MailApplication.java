@@ -23,10 +23,6 @@ import javax.jms.Topic;
 @ComponentScan(basePackages = "com.itcorey.*")
 public class MailApplication {
 
-
-	private static ApplicationContext applicationContext;
-
-
 	@Bean
 	public Topic topic() {
 		return new ActiveMQTopic("news.topic");
