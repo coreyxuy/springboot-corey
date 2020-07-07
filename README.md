@@ -32,6 +32,7 @@ springboot 2.0.5
 10. 启动加载缓存
 11. 整合redis启动加载缓存
 12. 整合redission
+13. 整合EasyExcel，报表导入导出功能
 
    
      
