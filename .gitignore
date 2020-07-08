@@ -10,3 +10,7 @@ gen
 target
 .iml
 .idea/
+/log/stdout.log.2020-06-29.log
+/log/stdout.log.2020-06-30.log
+/log/stdout.log.2020-07-02.log
+/log/stdout.log.2020-07-07.log
