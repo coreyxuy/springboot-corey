@@ -1,7 +1,6 @@
 package com.itcorey.aop;
 
 import com.alibaba.fastjson.JSON;
-
 import com.itcorey.passw.MyLog;
 import com.itcorey.pojo.ClSysLog;
 import com.itcorey.service.ClSysLogService;
