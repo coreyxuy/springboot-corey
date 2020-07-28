@@ -68,8 +68,8 @@ public class SysLogAspect {
         Object[] args = joinPoint.getArgs();
         //将参数所在的数组转换成json
         String params = Arrays.toString(args);
-        String sp = "),";
-        String[] split = params.split("sp",1);
+        String sp =")";
+        String[] split = params.split("|",1);
         sysLog.setParams(JSON.toJSONString(split));
         //获取用户名
       //  sysLog.setUsername(ShiroUtils.getUserEntity().getUsername());

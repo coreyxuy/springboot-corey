@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import tool.util.StringUtil;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 /**
@@ -40,7 +44,7 @@ public class UserController {
     @MyLog(value = "用户注册操作!")
     public R UserRegist(@Valid UserReqDto userReqDto, BindingResult result) {
         if (result.hasErrors()) {
-            return R.error().data("userReqDto",userReqDto).message(result.getAllErrors().get(0).getDefaultMessage());
+            return R.error().data("userReqDto", userReqDto).message(result.getAllErrors().get(0).getDefaultMessage());
         }
         User user = new User();
         user.setName(userReqDto.getName());
@@ -51,6 +55,18 @@ public class UserController {
         //user.setBirthday(userReqDto.getBirthday());
         user.setStatus(1);
         int insert = userMapper.insert(user);
-        return R.ok().data("insert",insert).message("注册成功！");
+        return R.ok().data("insert", insert).message("注册成功！");
     }
+
+
+    @RequestMapping(value = "/feedback", method = RequestMethod.POST)
+    @ResponseBody
+    @ApiOperation("用户信息注册！")
+    @MyLog(value = "用户注册操作!")
+    public R UserFeedback() {
+        //SESSION 获取用户信息request.getSession();
+        return R.ok().message("反馈信息添加成功！");
+    }
+
+
 }
