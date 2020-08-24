@@ -8,4 +8,8 @@ package com.itcorey.utils;
  */
 public class DateUtils {
 
+    public static void main(String[] args) {
+        System.out.println(2649.27 + 2767.43+4950);
+    }
+
 }
